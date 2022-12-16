@@ -1,65 +1,40 @@
 {
-  "name": "cost-of-modules",
-  "version": "1.0.1",
+  "name": "cost-of-modules2",
+  "version": "1.0.0",
   "description": "Find out which of your dependencies are slowing you down 🐢",
-  "author": "siddharthkp",
-  "homepage": "https://github.com/siddharthkp/cost-of-modules#readme",
-  "main": "src/index.js",
-  "bin": "dist/index.js",
+  "author": "Noran Diaconu",
+  "homepage": "https://github.com/norandiaconu/cost-of-modules2#readme",
+  "bin": {
+    "cost-of-modules": "src/index.js"
+  },
   "scripts": {
-    "build": "babel src -d dist",
-    "build-test": "babel test/src -d test/dist",
-    "test": "npm run build && npm run build-test && npm run ava",
-    "ava": "ava test/dist/*.js -s --no-cache",
-    "precommit": "lint-staged"
+    "test": "ava"
   },
   "files": [
-    "dist"
+    "src"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/siddharthkp/cost-of-modules.git"
+    "url": "git+https://github.com/norandiaconu/cost-of-modules2.git"
   },
   "engines": {
     "node": ">= 5.0.0",
     "npm": ">= 3.0.0"
   },
-  "keywords": "cost, modules, bloat",
+  "keywords": ["cost, modules, bloat"],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/siddharthkp/cost-of-modules/issues"
+    "url": "https://github.com/norandiaconu/cost-of-modules2/issues"
   },
   "dependencies": {
     "ansi-regex": "2.0.0",
-    "cli-table2": "0.2.0",
+    "cli-table": "^0.3.11",
     "colors": "1.1.2",
     "fs-extra": "2.1.0",
     "sync-exec": "0.6.2",
-    "yargs-parser": "4.0.2"
+    "yargs-parser": "^21.1.1"
   },
   "devDependencies": {
-    "ava": "0.16.0",
-    "babel-cli": "6.18.0",
-    "babel-preset-env": "^1.4.0",
-    "husky": "0.13.3",
-    "lint-staged": "3.4.0"
-  },
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": 4
-          }
-        }
-      ]
-    ]
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write --single-quote --no-semi --trailing-comma es5",
-      "git add"
-    ]
+    "ava": "^5.1.0"
   }
 }

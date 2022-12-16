@@ -3,7 +3,6 @@ const helpers = require('../../../src/helpers');
 
 let tests = (testData) => {
     let moduleSizes, rootDependencies, flatDependencies, allDependencies;
-    test.todo('setup was complete');
 
     test('get size for node_modules', t => {
         moduleSizes = helpers.getSizeForNodeModules();
@@ -24,11 +23,10 @@ let tests = (testData) => {
     });
 
     test('get all dependencies', t => {
+        flatDependencies = helpers.attachNestedDependencies(rootDependencies);
         allDependencies = helpers.getAllDependencies(flatDependencies);
         t.deepEqual(allDependencies, testData.allDependencies);
     });
-
-    test.todo('show results');
 };
 
 module.exports = tests;

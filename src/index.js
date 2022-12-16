@@ -65,6 +65,3 @@ allDependencies.forEach(dep => {
 
 /* Display results */
 helpers.displayResults(flatDependencies, allDependencies, totalSize)
-
-/* Return to original state */
-helpers.teardown()

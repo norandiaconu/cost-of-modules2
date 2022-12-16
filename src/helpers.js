@@ -1,6 +1,6 @@
 const fs = require('fs-extra')
 const syncExec = require('sync-exec')
-const Table = require('cli-table2')
+const Table = require('cli-table')
 const { yellow } = require('colors')
 const argv = require('yargs-parser')(process.argv.slice(2))
 const path = require('path')
@@ -27,30 +27,6 @@ let setup = includeDev => {
     console.log()
     process.exit()
   }
-
-  /* Do not install dependencies based --no-install flag */
-  if (argv.install != null && !argv.install) return
-
-  /*
-        Make sure dependencies are installed
-        Ignore devDependencies/bundledDependencies by default
-        Adds them with --include-dev
-    */
-  console.log('Making sure dependencies are installed')
-
-  let command = `npm install ${productionModifier}`
-  if (argv.yarn) command = command.replace('npm', 'yarn')
-
-  console.log(command)
-  console.log()
-
-  /* Check if node modules exist and then backup */
-  let nodeModulesExist = fs.existsSync('node_modules')
-  if (nodeModulesExist) fs.copySync('node_modules', 'node_modules_bak')
-
-  /* Run install command */
-  syncExec(command, { stdio: [0, 1, 2] })
-  console.log()
 }
 
 /*
@@ -232,23 +208,6 @@ let displayResults = (flatDependencies, allDependencies, totalSize) => {
   console.log()
 }
 
-/* Return to original state */
-const teardown = () => {
-  /*
-      If the command is running with no-install,
-      there is no need for teardown
-    */
-  if (argv.install != null && !argv.install) return
-  /*
-      Restore node_modules backup if it exists
-    */
-  let backupExist = fs.existsSync('node_modules_bak')
-  if (backupExist) {
-    fs.removeSync('node_modules')
-    fs.moveSync('node_modules_bak', 'node_modules')
-  }
-}
-
 module.exports = {
   setup,
   getSizeForNodeModules,
@@ -256,5 +215,4 @@ module.exports = {
   attachNestedDependencies,
   getAllDependencies,
   displayResults,
-  teardown,
 }
