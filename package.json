@@ -1,7 +1,7 @@
 {
   "name": "cost-of-modules2",
-  "version": "1.0.0",
-  "description": "Find out which of your dependencies are slowing you down 🐢",
+  "version": "1.0.1",
+  "description": "Find out which of your dependencies are slowing you down 🐢 (Maintenance fork)",
   "author": "Noran Diaconu",
   "homepage": "https://github.com/norandiaconu/cost-of-modules2#readme",
   "bin": {
@@ -21,7 +21,9 @@
     "node": ">= 5.0.0",
     "npm": ">= 3.0.0"
   },
-  "keywords": ["cost, modules, bloat"],
+  "keywords": [
+    "cost, modules, bloat"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/norandiaconu/cost-of-modules2/issues"
@@ -31,7 +33,6 @@
     "cli-table": "^0.3.11",
     "colors": "1.1.2",
     "fs-extra": "2.1.0",
-    "sync-exec": "0.6.2",
     "yargs-parser": "^21.1.1"
   },
   "devDependencies": {

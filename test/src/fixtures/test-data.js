@@ -134,7 +134,6 @@ let moduleSizesArray = [
     { name: 'string-width', size: 5 },
     { name: 'strip-ansi', size: 9 },
     { name: 'supertap', size: 17 },
-    { name: 'sync-exec', size: 13 },
     { name: 'temp-dir', size: 3 },
     { name: 'time-zone', size: 2 },
     { name: 'to-regex-range', size: 22 },
@@ -155,7 +154,6 @@ let rootDependencies = [
     'cli-table',
     'colors',
     'fs-extra',
-    'sync-exec',
     'yargs-parser'
 ];
 
@@ -167,7 +165,6 @@ let flatDependencies = [
         name: 'fs-extra',
         children: [ 'graceful-fs', 'jsonfile', 'graceful-fs' ]
     },
-    { name: 'sync-exec', children: [] },
     { name: 'yargs-parser', children: [] }
 ];
 
@@ -178,7 +175,6 @@ let allDependencies = [
     'fs-extra',
     'graceful-fs',
     'jsonfile',
-    'sync-exec',
     'yargs-parser'
 ];
 

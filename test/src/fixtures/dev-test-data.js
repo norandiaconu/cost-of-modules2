@@ -134,7 +134,6 @@ let moduleSizesArray = [
     { name: 'string-width', size: 5 },
     { name: 'strip-ansi', size: 9 },
     { name: 'supertap', size: 17 },
-    { name: 'sync-exec', size: 13 },
     { name: 'temp-dir', size: 3 },
     { name: 'time-zone', size: 2 },
     { name: 'to-regex-range', size: 22 },
@@ -155,9 +154,7 @@ let rootDependencies = [
     'ava',
     'cli-table',
     'colors',
-    'cost-of-modules',
     'fs-extra',
-    'sync-exec',
     'yargs-parser'
 ];
 
@@ -349,12 +346,10 @@ let flatDependencies = [
   },
   { name: 'cli-table', children: [ 'colors' ] },
   { name: 'colors', children: [] },
-  { name: 'cost-of-modules', children: [ 'problems' ] },
   {
     name: 'fs-extra',
     children: [ 'graceful-fs', 'jsonfile', 'graceful-fs' ]
   },
-  { name: 'sync-exec', children: [] },
   { name: 'yargs-parser', children: [] }
 ];
 
@@ -398,7 +393,6 @@ let allDependencies = [
     'concat-map',
     'concordance',
     'convert-to-spaces',
-    'cost-of-modules',
     'currently-unhandled',
     'date-time',
     'debug',
@@ -476,7 +470,6 @@ let allDependencies = [
     'pkg-conf',
     'plur',
     'pretty-ms',
-    'problems',
     'queue-microtask',
     'readdirp',
     'require-directory',
@@ -495,7 +488,6 @@ let allDependencies = [
     'string-width',
     'strip-ansi',
     'supertap',
-    'sync-exec',
     'temp-dir',
     'time-zone',
     'to-regex-range',

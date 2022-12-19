@@ -1,5 +1,4 @@
 const fs = require('fs-extra')
-const syncExec = require('sync-exec')
 const Table = require('cli-table')
 const { yellow } = require('colors')
 const argv = require('yargs-parser')(process.argv.slice(2))
@@ -34,9 +33,17 @@ let setup = includeDev => {
     Ignore devDependencies/bundledDependencies by default
     Adds them with --include-dev
 */
-let getDependencyTree = () => {
-  let result = syncExec(`npm ls --json ${productionModifier}`)
-  return JSON.parse(result.stdout).dependencies
+let getDependencyTree = async () => {
+  const exec = require('child_process').exec;
+  let result = await new Promise((resolve) => {
+   exec(`npm ls --json ${productionModifier}`, (error, stdout, stderr) => {
+    if (error) {
+     console.warn(error);
+    }
+    resolve(stdout? stdout : stderr)
+   })
+  })
+  return JSON.parse(result).dependencies
 }
 
 /*
@@ -44,8 +51,8 @@ let getDependencyTree = () => {
     These are the ones declared as dependendies in package.json
     [a, b, c, d]
 */
-let getRootDependencies = () => {
-  let dependencyTree = getDependencyTree()
+let getRootDependencies = async () => {
+  let dependencyTree = await getDependencyTree()
   if (!dependencyTree) {
     console.log('There are no dependencies!')
     console.log()
@@ -136,9 +143,9 @@ let getDependenciesRecursively = (modules = [], tree) => {
         children: [a, b, c, d]
     }]
 */
-let attachNestedDependencies = rootDependencies => {
+let attachNestedDependencies = async rootDependencies => {
   let flatDependencies = []
-  let dependencyTree = getDependencyTree()
+  let dependencyTree = await getDependencyTree()
   for (let i = 0; i < rootDependencies.length; i++) {
     let dep = rootDependencies[i]
 

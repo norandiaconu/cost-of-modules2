@@ -12,19 +12,22 @@ let tests = (testData) => {
         t.deepEqual(moduleSizesArray, testData.moduleSizesArray);
     });
 
-    test('get root dependencies', t => {
-        rootDependencies = helpers.getRootDependencies();
+    test('get root dependencies', async t => {
+        rootDependencies = await helpers.getRootDependencies();
         t.deepEqual(rootDependencies, testData.rootDependencies);
     });
 
-    test('attach nested dependencies', t => {
-        flatDependencies = helpers.attachNestedDependencies(rootDependencies);
+    test('attach nested dependencies', async t => {
+        rootDependencies = await helpers.getRootDependencies();
+        flatDependencies = await helpers.attachNestedDependencies(rootDependencies);
         t.deepEqual(flatDependencies, testData.flatDependencies);
     });
 
-    test('get all dependencies', t => {
-        flatDependencies = helpers.attachNestedDependencies(rootDependencies);
-        allDependencies = helpers.getAllDependencies(flatDependencies);
+    test('get all dependencies', async t => {
+        rootDependencies = await helpers.getRootDependencies();
+        flatDependencies = await helpers.attachNestedDependencies(rootDependencies);
+        allDependencies = await helpers.getAllDependencies(flatDependencies);
+        console.dir(allDependencies, {'maxArrayLength': null});
         t.deepEqual(allDependencies, testData.allDependencies);
     });
 };
