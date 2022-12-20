@@ -1,5 +1,5 @@
 const test = require('ava');
-const helpers = require('../../../src/helpers');
+const helpers = require('../../src/helpers');
 
 let tests = (testData) => {
     let moduleSizes, rootDependencies, flatDependencies, allDependencies;
@@ -27,7 +27,6 @@ let tests = (testData) => {
         rootDependencies = await helpers.getRootDependencies();
         flatDependencies = await helpers.attachNestedDependencies(rootDependencies);
         allDependencies = await helpers.getAllDependencies(flatDependencies);
-        console.dir(allDependencies, {'maxArrayLength': null});
         t.deepEqual(allDependencies, testData.allDependencies);
     });
 };

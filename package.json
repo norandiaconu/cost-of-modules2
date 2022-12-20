@@ -1,6 +1,6 @@
 {
   "name": "cost-of-modules2",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Find out which of your dependencies are slowing you down 🐢 (Maintenance fork)",
   "author": "Noran Diaconu",
   "homepage": "https://github.com/norandiaconu/cost-of-modules2#readme",
@@ -29,7 +29,6 @@
     "url": "https://github.com/norandiaconu/cost-of-modules2/issues"
   },
   "dependencies": {
-    "ansi-regex": "2.0.0",
     "cli-table": "^0.3.11",
     "colors": "1.1.2",
     "fs-extra": "2.1.0",

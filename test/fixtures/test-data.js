@@ -7,7 +7,7 @@ let moduleSizesArray = [
     { name: 'acorn', size: 455 },
     { name: 'acorn-walk', size: 41 },
     { name: 'aggregate-error', size: 6 },
-    { name: 'ansi-regex', size: 2 },
+    { name: 'ansi-regex', size: 5 },
     { name: 'ansi-styles', size: 17 },
     { name: 'anymatch', size: 9 },
     { name: 'argparse', size: 113 },
@@ -132,7 +132,7 @@ let moduleSizesArray = [
     { name: 'sprintf-js', size: 33 },
     { name: 'stack-utils', size: 17 },
     { name: 'string-width', size: 5 },
-    { name: 'strip-ansi', size: 9 },
+    { name: 'strip-ansi', size: 3 },
     { name: 'supertap', size: 17 },
     { name: 'temp-dir', size: 3 },
     { name: 'time-zone', size: 2 },
@@ -150,7 +150,6 @@ let moduleSizesArray = [
 ];
 
 let rootDependencies = [
-    'ansi-regex',
     'cli-table',
     'colors',
     'fs-extra',
@@ -158,7 +157,6 @@ let rootDependencies = [
 ];
 
 let flatDependencies = [
-    { name: 'ansi-regex', children: [] },
     { name: 'cli-table', children: [ 'colors' ] },
     { name: 'colors', children: [] },
     {
@@ -169,7 +167,6 @@ let flatDependencies = [
 ];
 
 let allDependencies = [
-    'ansi-regex',
     'cli-table',
     'colors',
     'fs-extra',
