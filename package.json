@@ -1,6 +1,6 @@
 {
   "name": "cost-of-modules2",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Find out which of your dependencies are slowing you down 🐢 (Maintenance fork)",
   "author": "Noran Diaconu",
   "homepage": "https://github.com/norandiaconu/cost-of-modules2#readme",
@@ -35,6 +35,9 @@
     "yargs-parser": "^21.1.1"
   },
   "devDependencies": {
-    "ava": "^5.1.0"
+    "ava": "^5.3.1"
+  },
+  "resolutions": {
+    "ava/concordance/semver": "7.5.4"
   }
 }
